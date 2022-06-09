@@ -15,24 +15,25 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: Layout,
-      redirect:"/index",
-      hidden:true,
-      children:[
+      redirect: "/index",
+      hidden: true,
+      children: [
         {
-          path:"index",
-          name:"mindexy1",
-          component:()=>import("@/view/welcome/index")
+          path: "index",
+          name: "mindexy1",
+          component: () => import("@/view/welcome/index")
         }
       ]
     },
     {
       path: '/login',
       name: 'login',
-      component: ()=>import("@/view/login/index"),
-      hidden:true,
+      component: () => import("@/view/login/index"),
+      hidden: true,
     },
     staffs,
     patients,
     treat
   ]
 })
+

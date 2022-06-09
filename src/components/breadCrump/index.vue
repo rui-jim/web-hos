@@ -2,8 +2,9 @@
   <div>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>{{ content.name }}</el-breadcrumb-item>
-      <el-breadcrumb-item>{{ content.meta.title }}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="item in contents" :key="item.path">{{
+        item.meta.title
+      }}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
@@ -12,13 +13,12 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      content: {},
+      contents: [],
     };
   },
   components: {},
   created() {
-    console.log("breacumb ", this.$route);
-    this.content = this.$route;
+    this.contents = this.$route.matched;
   },
   computed: {
     ...mapGetters([""]),

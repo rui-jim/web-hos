@@ -7,19 +7,10 @@
       closable
       :disable-transitions="false"
       @close="handleClose(tag.fullPath)"
+      @click="routePage(tag.fullPath)"
     >
       {{ tag.meta.title }}
     </el-tag>
-
-    <!-- <el-tag
-      v-for="tag in tags"
-      :key="tag.meta.name"
-      closable
-      :disable-transitions="false"
-      @close="handleClose"
-    >
-      {{ tag.meta.title }}
-    </el-tag> -->
   </div>
 </template>
 <script>
@@ -34,6 +25,9 @@ export default {
     handleClose(fullPath) {
       this.$store.dispatch("tagTest/drop_tag", fullPath);
     },
+    routePage(fullPath) {
+      this.$router.push({ path: fullPath });
+    },
   },
   computed: {
     ...mapGetters(["tags"]),
@@ -43,5 +37,6 @@ export default {
 <style scoped>
 .el-tag {
   margin: 0 0.3vw;
+  cursor: pointer;
 }
 </style>

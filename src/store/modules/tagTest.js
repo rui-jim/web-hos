@@ -1,50 +1,49 @@
 import settings from "@/settings"
 
-const key=settings.tagTest.key
+const key = settings.tagTest.key
 
 const state = {
-    // tag:[1,23]
     tags: []
 }
 
 const mutations = {
-    ADD_TAG:(state,test)=>{
-        let judge = state.tags.some((v)=>{return v.fullPath==test.fullPath})
-        if(!state.tags.some((v)=>{return v.fullPath==test.fullPath})){
-            let arr=state.tags.push(test)
+    ADD_TAG: (state, test) => {
+        let judge = state.tags.some((v) => { return v.fullPath == test.fullPath })
+        if (!state.tags.some((v) => { return v.fullPath == test.fullPath })) {
+            let arr = state.tags.push(test)
             let tempTags = JSON.stringify(state.tags)
-            localStorage.setItem(key,tempTags,settings.localTime.expire)
+            localStorage.setItem(key, tempTags, settings.localTime.expire)
         }
     },
-    DROP_TAG:(state,fullPath)=>{
-        let arr=state.tags;
-        for(let i=0;i<arr.length;i++){
-            if(arr[i].fullPath===fullPath){
-                arr.splice(i,1)
-                localStorage.setItem(key,JSON.stringify(arr),settings.localTime.expire)
+    DROP_TAG: (state, fullPath) => {
+        let arr = state.tags;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].fullPath === fullPath) {
+                arr.splice(i, 1)
+                localStorage.setItem(key, JSON.stringify(arr), settings.localTime.expire)
             }
         }
     },
-    INIT_TAG:(state)=>{
+    INIT_TAG: (state) => {
         let tempData = JSON.parse(localStorage.getItem(key))
-        state.tags=tempData
+        state.tags = tempData
     }
 }
 
-const actions={
-    init_tag({commit}){
-        commit("INIT_TAG",key)
+const actions = {
+    init_tag({ commit }) {
+        commit("INIT_TAG", key)
     },
-    drop_tag({commit},fullPath){
-        commit("DROP_TAG",fullPath)
+    drop_tag({ commit }, fullPath) {
+        commit("DROP_TAG", fullPath)
     },
-    add_tag({commit},tag){
-        commit("ADD_TAG",tag)
+    add_tag({ commit }, tag) {
+        commit("ADD_TAG", tag)
     }
 }
 
-const store ={
-    namespaced:true,
+const store = {
+    namespaced: true,
     state,
     mutations,
     actions

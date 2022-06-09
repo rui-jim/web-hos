@@ -11,10 +11,10 @@ const staffs={
     hidden:false,
     children:[
         {
-            path:"doctors",
-            name:"doctors",
-            meta:{title:"医生管理"},
-            component:()=>import("@/view/staffs/doctors/index")
+            path:"emps",
+            name:"emps",
+            meta:{title:"员工管理"},
+            component:()=>import("@/view/staffs/emps/index")
         },
         {
             path:"title",
@@ -23,10 +23,10 @@ const staffs={
             component:()=>import("@/view/staffs/title/index")
         },
         {
-            path:"depts",
-            name:"depts",
-            meta:{title:"部门管理"},
-            component:()=>import("@/view/staffs/depts/index")
+            path:"accounts",
+            name:"accounts",
+            meta:{title:"账号管理"},
+            component:()=>import("@/view/staffs/accounts/index")
         }
     
     ],
