@@ -90,7 +90,6 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-items: center;
-  /* justify-items: space-between; */
 }
 img {
   width: 5vw;
@@ -181,7 +180,7 @@ img {
   overflow: hidden;
   transition: 0.5s;
   margin-top: 40px;
-  margin-right: 13vw;
+  margin-right: 12vw;
   letter-spacing: 4px;
 }
 /* .login form .a-end {
