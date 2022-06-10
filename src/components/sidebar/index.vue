@@ -3,13 +3,12 @@
     <el-row>
       <el-menu
         text-color="#fff"
-        background-color="rgb(51,55,68)"
-        active-text-color="#ffd04b"
+        background-color="rgb(46, 98, 196)"
+        active-text-color="rgb(12, 216, 223)"
         :unique-opened="true"
         :default-active="activePath"
         router
       >
-        <!-- {{ routerList }} -->
         <subMenu :menuList="routerList"></subMenu>
       </el-menu>
     </el-row>

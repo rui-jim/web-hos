@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       roles: [],
-      //   role: "",
       permissions: [],
       permission: "",
       index: 0,
@@ -45,7 +44,6 @@ export default {
           this.index = i;
         }
       }
-      console.log("ASDASD", rname, this.roles.length, this.index);
     },
     getRolesPList() {
       getRolesPList().then((response) => {

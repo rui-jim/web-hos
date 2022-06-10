@@ -1,6 +1,6 @@
 <template>
   <el-container class="Home_container">
-    <el-header>Header</el-header>
+    <el-header>医院管理系统</el-header>
     <el-container>
       <el-aside width="183px">
         <sidebar></sidebar>
@@ -38,12 +38,12 @@ export default {
   overflow: hidden;
 }
 .el-header {
-  background: #373d41;
+  background: rgb(14, 83, 211);
   display: flex;
   justify-content: space-between;
-  padding-left: 0;
+  padding: 0 30px;
   align-items: center;
-  color: #fff;
+  color: rgb(243, 243, 243);
   font-size: 20px;
 }
 .el-header img {
@@ -69,12 +69,13 @@ export default {
 .el-container {
   width: 100%;
   height: 100%;
-  background: #333744;
+  background: rgb(46, 98, 196);
+  /* background: rgb(7, 92, 190); */
 }
 
 .el-main {
   background: rgb(219, 216, 216);
-  color: #333;
+  color: rgb(51, 51, 51);
   padding: 10px;
   /* line-height: 160px; */
 }

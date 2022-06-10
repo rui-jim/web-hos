@@ -187,6 +187,15 @@ export default {
       this.identifiedChange();
     },
     identifiedChange() {
+      for (let field in this.editAccountsInfo) {
+        if (thisfield == null) {
+          this.$message({
+            type: "warning",
+            message: "请填写完信息",
+          });
+          return;
+        }
+      }
       console.log("change Info ", this.editAccountsInfo);
       submitUpdateAccounts(this.editAccountsInfo).then((response) => {
         console.log("UPDATE ", response);

@@ -18,8 +18,6 @@
       <el-table :data="permissionsList" border style="width: 15vw">
         <el-table-column prop="pnickname" label="权限名称" width="230px">
         </el-table-column>
-        <!-- <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-          <el-table-column prop="address" label="地址"> </el-table-column> -->
       </el-table>
     </div>
 
@@ -43,7 +41,6 @@
           </el-select>
 
           <!-- 多选框 -->
-
           <el-checkbox
             :indeterminate="isIndeterminate"
             v-model="checkAll"
@@ -141,23 +138,18 @@ export default {
         for (let i in this.totalPermissionList) {
           let temp = this.totalPermissionList[i];
           this.changePermission.push(temp.pid);
-          console.log("changePermission ==== ", this.changePermission);
         }
       } else {
         this.changePermission = [];
       }
     },
     submitUpdatePer(val) {
-      console.log("submit ======== ", val);
-      console.log("submit ======== change ", this.changePermission, this.role);
       let convertPerList = [];
       for (let i in this.changePermission) {
         convertPerList.push({ pid: this.changePermission[i] });
       }
-      console.log("converPerList ", convertPerList);
       let data = { rid: this.role, permissionsList: convertPerList };
       updatePerOfRole(data).then((response) => {
-        console.log("Update Success ?? ", response);
         if (response.data.success) {
           this.$message({
             type: "success",
@@ -174,7 +166,6 @@ export default {
       this.centerDialogVisible = false;
     },
     clickPer(val) {
-      console.log("judge val", val);
       this.changePermission = val;
     },
     // 修改职位权限的按钮
@@ -184,7 +175,6 @@ export default {
     // 添加职位名称的按钮
     changeRole() {
       addRole(this.addRole).then((response) => {
-        console.log("addRoleName response = ", response);
         if (response.data.success) {
           this.$message({
             type: "success",
@@ -197,12 +187,11 @@ export default {
             message: "添加职位失败",
           });
         }
+        this.dialogVisible = false;
       });
-      this.dialogVisible = false;
     },
     //删除职位名称的按钮
     deleteSelectedRole() {
-      console.log("delete role ", this.role);
       deleteRole({ rid: this.role }).then((response) => {
         if (response.data.success) {
           this.$message({
@@ -230,18 +219,14 @@ export default {
         }
       }
       let tempPer = this.rolesData[this.index].permissionsList;
-      console.log("tempPer =========== ", tempPer);
       this.permissionsList = tempPer;
       for (let temp in tempPer) {
         this.changePermission.push(parseInt(tempPer[temp].pid));
       }
-      console.log("rolesChange", this.changePermission);
-      console.log("rolesChange", this.permissionsList);
     },
     // 获得总权限列表
     getTotalPermissionsList() {
       getPermissionsList().then((response) => {
-        console.log("permissionList resp ", response);
         this.totalPermissionList = response.data.permissionsList;
       });
     },
@@ -249,7 +234,6 @@ export default {
     getRolesList() {
       getRolesPList().then((response) => {
         this.rolesData = response.data.rolesVo;
-        console.log("RolesData ======= ", this.rolesData);
       });
     },
   },

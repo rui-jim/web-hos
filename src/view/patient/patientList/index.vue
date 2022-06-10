@@ -46,7 +46,6 @@ export default {
   methods: {
     getPatientsList() {
       getPatientList().then((response) => {
-        console.log("RESP ", response);
         this.tableData = response.data.patientList;
         this.value = this.tableData[0].doctorsName[0];
       });
