@@ -1,6 +1,8 @@
 <template>
   <el-container class="Home_container">
-    <el-header>医院管理系统</el-header>
+    <el-header>
+      <header-content></header-content>
+    </el-header>
     <el-container>
       <el-aside width="183px">
         <sidebar></sidebar>
@@ -15,9 +17,11 @@
   </el-container>
 </template>
 <script>
+import headerContent from "../headerContent/index.vue";
 import contentMenu from "../breadCrump/index.vue";
 import tag from "../tag/index";
 import sidebar from "../sidebar/index.vue";
+
 export default {
   data() {
     return {
@@ -28,23 +32,27 @@ export default {
     sidebar,
     contentMenu,
     tag,
+    headerContent,
   },
+
 };
 </script>
 
 <style scoped>
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409eff;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
+}
 .Home_container {
   height: 50vh;
   overflow: hidden;
 }
 .el-header {
   background: rgb(14, 83, 211);
-  display: flex;
-  justify-content: space-between;
   padding: 0 30px;
-  align-items: center;
-  color: rgb(243, 243, 243);
-  font-size: 20px;
 }
 .el-header img {
   height: 100px;

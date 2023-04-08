@@ -9,7 +9,7 @@ export function getUserInfo() {
     })
 }
 
-export function getUserInfo() {
+export function getMenuInfo() {
     return request({
         url: `/user/getMenu`,
         method: "get"

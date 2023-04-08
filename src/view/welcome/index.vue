@@ -1,8 +1,13 @@
 <template>
   <div>
-    <h2>welcome to Home</h2>
+    <h2>欢迎登录 {{ userInfo.name }}</h2>
   </div>
 </template>
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["userInfo"]),
+  },
+};
 </script>

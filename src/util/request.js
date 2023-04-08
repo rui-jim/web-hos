@@ -8,13 +8,20 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(config => {
+  console.log("FFFFFFFFFFFFF")
   config.headers["token"] = getToken()
   return config
 }, error => {
   console.log(error) // for debug
   Promise.reject(error)
 })
-service.interceptors.response.use(response => {
-  return response.data
-})
+service.interceptors.response.use(
+  response => {
+    console.log("interceptore reponse ", response)
+    return response.data
+  })
+// service.interceptors.response.use(response => {
+//   console.log("interceptore reponse ", response)
+//   return response
+// })
 export default service

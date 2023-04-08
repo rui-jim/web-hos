@@ -27,6 +27,9 @@ const mutations = {
     INIT_TAG: (state) => {
         let tempData = JSON.parse(localStorage.getItem(key))
         state.tags = tempData
+    },
+    CLEAR_TAG: (state) => {
+        state.tags = []
     }
 }
 
@@ -39,7 +42,10 @@ const actions = {
     },
     add_tag({ commit }, tag) {
         commit("ADD_TAG", tag)
-    }
+    },
+    clear_tag({ commit }) {
+        commit("CLEAR_TAG")
+    },
 }
 
 const store = {

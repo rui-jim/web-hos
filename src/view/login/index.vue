@@ -39,7 +39,7 @@
 <script>
 import { loginUser } from "@/api/login";
 import Cookies from "js-cookie";
-import { setToken } from "@/util/tokenUtils";
+import { setToken, getToken } from "@/util/tokenUtils";
 export default {
   data() {
     return {
@@ -59,12 +59,14 @@ export default {
       } else {
         loginUser(this.inputForm).then((response) => {
           if (response.success) {
+            console.log("response login ", response);
             this.$message({
               type: "success",
               message: response.message,
             });
             setToken(response.data.token);
-
+            console.log("token ", getToken());
+            this.$store.dispatch("tagTest/clear_tag");
             this.$router.push({ path: "/" });
           } else {
             this.$message({
